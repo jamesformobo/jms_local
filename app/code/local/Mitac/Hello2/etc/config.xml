@@ -1,0 +1,104 @@
+<?xml version="1.0" ?> 
+<config>
+  <modules>
+    <Mitac_Hello2>
+      <version>1.0.0</version> 
+    </Mitac_Hello2>
+  </modules>
+
+  <global>
+      <blocks>
+        <mitachello>
+          <class>Mitac_Hello2_Block</class>
+        </mitachello>
+      </blocks>
+
+      <helpers>
+        <michello>
+          <class>Mitac_Hello2_Helper</class>
+        </michello>
+      </helpers>
+
+        <models>
+          <mitachello>
+              <class>Mitac_Hello2_Model</class>
+              <resourceModel>mitachello_mysql4</resourceModel>
+          </mitachello>
+          <mitachello_mysql4>
+              <class>Mitac_Hello2_Model_Mysql4</class>
+                  <entities>
+                      <message>
+                          <table>mitac_message</table>
+                      </message>
+                  </entities>
+          </mitachello_mysql4>
+        </models>
+
+        <resources>
+          <mitachello_setup>
+              <setup>
+                  <module>Mitac_Hello2</module>
+                  <class>Mage_Core_Model_Resource_Setup</class>
+              </setup>
+              <connection>
+                  <use>core_setup</use>
+              </connection>
+          </mitachello_setup>
+          <mitachello_write>
+              <connection>
+                  <use>core_write</use>
+              </connection>
+          </mitachello_write>
+          <mitachello_read>
+              <connection>
+                  <use>core_read</use>
+              </connection>
+          </mitachello_read>
+        </resources>      
+
+  </global>
+
+  <frontend>
+      <routers>
+          <michello>
+            <use>standard</use>
+            <args>
+                <module>Mitac_Hello2</module>
+                <frontName>michello</frontName>
+            </args>
+          </michello>
+      </routers>
+
+      <layout>
+        <updates>
+            <mitachello module="Mitac_Hello2">
+                <file>mitac/hello.xml</file>
+            </mitachello>       
+        </updates>
+      </layout>
+
+      <translate>
+          <modules>
+              <mitachello>
+                  <files>
+                      <default>Mitac_Hello2.csv</default>
+                  </files>
+              </mitachello>
+          </modules>
+      </translate>
+  </frontend>
+
+  <!--crontab>
+    <jobs>
+      <hide_message>
+        <schedule>
+          <cron_expr>*/5 * * * *</cron_expr>
+        </schedule>
+        <run>
+          <model>michello/cron::hideMessage</model>
+        </run>
+      </hide_message>
+    </jobs>
+  </crontab-->
+
+</config>

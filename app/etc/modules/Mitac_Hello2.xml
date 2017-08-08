@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mitac_Hello2>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mitac_Hello2>
+    </modules>
+</config>
